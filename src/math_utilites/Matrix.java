@@ -39,16 +39,10 @@ public class Matrix {
     }
 
     public void debug(){
-        System.out.println("---Rows---");
-        for(int i = 0; i < rowsSize; i++){
-            for(int j = 0; j < columnsSize; j++)
+        System.out.println("---Matrix---");
+        for(int i = 0; i < rowsSize; i++) {
+            for (int j = 0; j < columnsSize; j++)
                 System.out.print(rows.get(i).get(j) + " | ");
-            System.out.println();
-        }
-        System.out.println("---Columns---");
-        for(int i = 0; i < columnsSize; i++){
-            for(int j = 0; j < rowsSize; j++)
-                System.out.print(columns.get(i).get(j) + " | ");
             System.out.println();
         }
     }
@@ -85,9 +79,9 @@ public class Matrix {
             return null;
 
         Matrix result = new Matrix(A.rows(), B.columns());
-        for(int i = 0; i < result.columns(); i++){
+        for(int i = 0; i < result.rows(); i++){
             List<Double> newRow = new ArrayList<>();
-            for(int j = 0; j < result.rows(); j++){
+            for(int j = 0; j < result.columns(); j++){
                 newRow.add(dotProduct(A.getRow(i), B.getColumn(j)));
             }
             result.setRow(i, newRow);

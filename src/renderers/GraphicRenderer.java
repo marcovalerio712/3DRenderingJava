@@ -12,7 +12,7 @@ public class GraphicRenderer extends JFrame{
     public GraphicRenderer(){
         super("Graphic 3D Renderer");
 
-        this.setSize(300, 200);
+        this.setSize(800, 600);
         this.setVisible(true);
         this.setLocation(200, 200);
         this.setLayout(new BorderLayout());
@@ -29,5 +29,8 @@ public class GraphicRenderer extends JFrame{
         canvas.addSegment(edge);
     }
 
+    public void refresh(){
+        canvas.repaint();
+    }
 
 }

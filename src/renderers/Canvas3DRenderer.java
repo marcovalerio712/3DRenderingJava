@@ -16,6 +16,11 @@ public class Canvas3DRenderer extends Canvas {
 
     @Override
     public void paint(Graphics g){
+
+        g.setColor(Color.WHITE);
+        g.fillRect(0,0, 500, 500);
+
+        g.setColor(Color.black);
         for(Edge edge : segments){
             int x1 = (int) Math.round(edge.getFirstVertex().getPosition().getX());
             int y1 = (int) Math.round(edge.getFirstVertex().getPosition().getY());
@@ -23,6 +28,8 @@ public class Canvas3DRenderer extends Canvas {
             int y2 = (int) Math.round(edge.getSecondVertex().getPosition().getY());
             g.drawLine(x1, y1, x2, y2);
         }
+
+        segments = new ArrayList<>();
     }
 
 }

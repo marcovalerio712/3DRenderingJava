@@ -25,4 +25,7 @@ public class TriangleSurface {
         return edges;
     }
 
+    public Vertex[] getVertexes() {
+        return vertexes;
+    }
 }
