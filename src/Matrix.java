@@ -6,8 +6,8 @@ public class Matrix {
     private List<List<Double>> rows = new ArrayList<>();
     private List<List<Double>> columns = new ArrayList<>();
 
-    private int rowsSize = 0;
-    private int columnsSize = 0;
+    private int rowsSize;
+    private int columnsSize;
 
     public Matrix(int rowsSize, int columnsSize){
         this.rowsSize = rowsSize;
@@ -54,7 +54,7 @@ public class Matrix {
 
     public void setRow(int index, List<Double> row){
 
-        rows.set(index, new ArrayList<Double>(row));
+        rows.set(index, new ArrayList<>(row));
 
         for(int i = 0; i < columnsSize; i++){
             columns.get(i).set(index, row.get(i));
@@ -67,7 +67,7 @@ public class Matrix {
     }
 
     public void setColumn(int index, List<Double> column){
-        columns.set(index, new ArrayList<Double>(column));
+        columns.set(index, new ArrayList<>(column));
 
         for(int i = 0; i < rowsSize; i++){
             rows.get(i).set(index, column.get(i));
@@ -99,7 +99,7 @@ public class Matrix {
 
         if(firstVector.size() != secondVector.size())
             return null;
-        Double result = 0d;
+        double result = 0d;
         int size = firstVector.size();
         for(int i = 0; i < size; i++){
             result += firstVector.get(i) * secondVector.get(i);
