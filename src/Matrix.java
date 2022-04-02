@@ -24,6 +24,7 @@ public class Matrix {
             columns.add(new ArrayList<>());
             for(int i = 0; i < rowsSize; i++){
                 columns.get(j).add(0d);
+                //Test
             }
         }
     }
