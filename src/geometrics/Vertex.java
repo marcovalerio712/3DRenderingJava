@@ -1,3 +1,5 @@
+package geometrics;
+
 public class Vertex {
 
     private Vector3D position;

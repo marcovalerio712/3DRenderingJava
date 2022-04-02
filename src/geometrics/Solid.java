@@ -1,3 +1,7 @@
+package geometrics;
+
+import geometrics.TriangleSurface;
+
 import java.util.ArrayList;
 
 public class Solid {

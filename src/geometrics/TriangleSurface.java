@@ -1,4 +1,7 @@
-import java.util.ArrayList;
+package geometrics;
+
+import geometrics.Edge;
+import geometrics.Vertex;
 
 public class TriangleSurface {
 

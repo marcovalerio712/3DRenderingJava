@@ -1,3 +1,5 @@
+package geometrics;
+
 public class Vector3D {
 
     private double x, y, z;

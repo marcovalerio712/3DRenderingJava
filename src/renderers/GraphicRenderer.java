@@ -1,5 +1,8 @@
+package renderers;
+
+import geometrics.Edge;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class GraphicRenderer extends JFrame{

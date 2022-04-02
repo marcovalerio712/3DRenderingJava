@@ -1,3 +1,5 @@
+package geometrics;
+
 public class Edge {
 
     private final Vertex vertex_1;
