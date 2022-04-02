@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestMainApp {
 
     public static void main(String[] args){
@@ -19,7 +22,14 @@ public class TestMainApp {
         }
 
         Matrix A = new Matrix(3, 2);
-        A.debug();
+        Matrix B = new Matrix(2, 3);
+
+        Matrix C = Matrix.multiply(A, B);
+
+        A.setRow(0, List.of(1d, 2d, 3d));
+        A.setColumn(0, List.of(0d, 1d, 2d));
+
+        C.debug();
 
         Vector3D gradient = new Vector3D(2*x, 2*y, 2*z);
     }

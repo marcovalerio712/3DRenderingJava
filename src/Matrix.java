@@ -29,6 +29,14 @@ public class Matrix {
         }
     }
 
+    public int rows(){
+        return this.rowsSize;
+    }
+
+    public int columns(){
+        return this.columnsSize;
+    }
+
     public void debug(){
         System.out.println("---Rows---");
         for(int i = 0; i < rowsSize; i++){
@@ -44,17 +52,60 @@ public class Matrix {
         }
     }
 
+    public void setRow(int index, List<Double> row){
 
-    public void addRow(int index, List<Double> row){
+        rows.set(index, new ArrayList<Double>(row));
 
-        if(index > rowsSize)
-            index = rowsSize;
-
-        rows.add(index, row);
-
-        for(Double element : row){
-
+        for(int i = 0; i < columnsSize; i++){
+            columns.get(i).set(index, row.get(i));
         }
+
+    }
+
+    public List<Double> getRow(int index){
+        return rows.get(index);
+    }
+
+    public void setColumn(int index, List<Double> column){
+        columns.set(index, new ArrayList<Double>(column));
+
+        for(int i = 0; i < rowsSize; i++){
+            rows.get(i).set(index, column.get(i));
+        }
+    }
+
+    public List<Double> getColumn(int index){
+        return columns.get(index);
+    }
+
+    public static Matrix multiply(Matrix A, Matrix B){
+
+        if(A.columns() != B.rows())
+            return null;
+
+        Matrix result = new Matrix(A.rows(), B.columns());
+        for(int i = 0; i < result.columns(); i++){
+            List<Double> newRow = new ArrayList<>();
+            for(int j = 0; j < result.rows(); j++){
+                newRow.add(dotProduct(A.getRow(i), B.getColumn(j)));
+            }
+            result.setRow(i, newRow);
+        }
+
+        return result;
+    }
+
+    private static Double dotProduct(List<Double> firstVector, List<Double> secondVector){
+
+        if(firstVector.size() != secondVector.size())
+            return null;
+        Double result = 0d;
+        int size = firstVector.size();
+        for(int i = 0; i < size; i++){
+            result += firstVector.get(i) * secondVector.get(i);
+        }
+
+        return result;
 
     }
 
